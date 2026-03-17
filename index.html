@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOT PACK 핫팩 - 광주 청년 취미활동 커뮤니티</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#FF6B1A;
+  --orange-light:#FFF3EC;
+  --green:#2D6A4F;
+  --green-light:#D8F3DC;
+  --cream:#FFFBF5;
+  --brown:#5C3A1E;
+  --pink:#FF8FA3;
+  --yellow:#FFE66D;
+}
+body{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--cream);color:#333;overflow-x:hidden}
+
+nav{
+  background:white;
+  border-bottom:2px solid var(--orange);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo .cat-icon{font-size:28px}
+.nav-logo h1{font-size:18px;font-weight:700;color:var(--orange);letter-spacing:-0.5px;margin:0}
+.nav-logo span{font-size:11px;color:#888;display:block;letter-spacing:0.5px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;font-size:13px;color:#555;font-weight:500;padding:6px 12px;border-radius:20px;transition:all 0.2s}
+.nav-links a:hover{background:var(--orange-light);color:var(--orange)}
+
+.hero{
+  background:var(--orange);
+  padding:60px 24px 100px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;bottom:-1px;left:0;right:0;height:60px;
+  background:var(--cream);
+  border-radius:50% 50% 0 0 / 60px 60px 0 0;
+}
+.hero-badge{
+  display:inline-block;
+  background:white;color:var(--orange);
+  font-size:12px;font-weight:700;
+  padding:6px 18px;border-radius:20px;
+  margin-bottom:20px;
+  letter-spacing:1px;
+}
+.hero-desc-top{font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:6px;letter-spacing:1px;font-style:italic}
+.hero-title{
+  font-size:58px;font-weight:900;color:white;
+  line-height:1;letter-spacing:-2px;
+  text-shadow:4px 4px 0px var(--brown);
+  margin-bottom:4px;
+}
+.hero-subtitle{
+  font-size:32px;font-weight:900;color:white;
+  letter-spacing:-1px;
+  text-shadow:3px 3px 0px var(--brown);
+  margin-bottom:24px;
+}
+.hero-desc{font-size:15px;color:rgba(255,255,255,0.9);margin-bottom:32px;line-height:1.7}
+
+.cat-hero{font-size:80px;margin-bottom:20px;display:block;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:white;color:var(--orange);
+  border:none;padding:14px 28px;border-radius:30px;
+  font-size:15px;font-weight:700;cursor:pointer;
+  box-shadow:3px 3px 0px var(--brown);
+  transition:all 0.15s;
+  font-family:inherit;
+}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0px var(--brown)}
+.btn-primary:active{transform:translate(1px,1px);box-shadow:1px 1px 0px var(--brown)}
+.btn-secondary{
+  background:transparent;color:white;
+  border:2px solid white;padding:14px 28px;border-radius:30px;
+  font-size:15px;font-weight:700;cursor:pointer;
+  transition:all 0.15s;
+  font-family:inherit;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.15)}
+
+.section{padding:50px 24px;max-width:680px;margin:0 auto}
+.section-title{
+  font-size:24px;font-weight:700;color:var(--brown);
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-title .tag{
+  background:var(--orange);color:white;
+  font-size:11px;padding:3px 10px;border-radius:10px;
+  font-weight:700;letter-spacing:0.5px;
+}
+.section-desc{font-size:14px;color:#777;margin-bottom:30px;line-height:1.7}
+
+.story-box{
+  background:white;
+  border:2px solid #f0e8d8;
+  border-radius:20px;
+  padding:28px;
+  margin-bottom:20px;
+  position:relative;
+}
+.story-box .quote{
+  font-size:36px;color:var(--orange);
+  position:absolute;top:16px;left:20px;
+  line-height:1;font-family:serif;
+}
+.story-box p{
+  font-size:15px;line-height:1.8;color:#555;
+  padding-left:20px;
+  padding-top:10px;
+}
+.story-box strong{color:var(--orange)}
+
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.why-card{
+  background:white;
+  border-radius:18px;
+  padding:22px 18px;
+  border:2px solid #f0e8d8;
+  text-align:center;
+  transition:transform 0.2s;
+}
+.why-card:hover{transform:translateY(-4px)}
+.why-card .icon{font-size:36px;margin-bottom:10px}
+.why-card h3{font-size:14px;font-weight:700;color:var(--brown);margin-bottom:6px}
+.why-card p{font-size:12px;color:#888;line-height:1.6}
+
+.activities{display:flex;flex-direction:column;gap:14px}
+.activity{
+  background:white;
+  border-radius:16px;
+  padding:18px 20px;
+  border:2px solid #f0e8d8;
+  display:flex;align-items:center;gap:16px;
+  cursor:pointer;
+  transition:all 0.2s;
+  text-decoration:none;color:inherit;
+}
+.activity:hover{border-color:var(--orange);transform:translateX(4px)}
+.activity .act-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.act-orange{background:var(--orange-light)}
+.act-green{background:var(--green-light)}
+.act-pink{background:#FFF0F3}
+.act-yellow{background:#FFFBE6}
+.activity h3{font-size:15px;font-weight:700;color:#333;margin-bottom:3px}
+.activity p{font-size:12px;color:#999}
+.activity .arr{margin-left:auto;font-size:18px;color:#ccc}
+
+.recruit-box{
+  background:var(--orange);
+  border-radius:24px;
+  padding:32px 28px;
+  color:white;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.recruit-box::before{
+  content:'🐱';
+  position:absolute;top:-10px;right:20px;
+  font-size:80px;opacity:0.2;
+  pointer-events:none;
+}
+.recruit-box h2{font-size:22px;font-weight:700;margin-bottom:6px}
+.recruit-box p{font-size:14px;opacity:0.9;margin-bottom:24px;line-height:1.7}
+.info-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;margin-bottom:24px;
+}
+.info-item{
+  background:rgba(255,255,255,0.2);
+  border-radius:14px;padding:14px;
+}
+.info-item .label{font-size:11px;opacity:0.8;margin-bottom:4px;font-weight:600;letter-spacing:0.5px}
+.info-item .val{font-size:14px;font-weight:700}
+.btn-apply{
+  background:white;color:var(--orange);
+  border:none;padding:16px 36px;border-radius:30px;
+  font-size:16px;font-weight:700;cursor:pointer;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+  width:100%;
+  transition:all 0.2s;
+  font-family:inherit;
+}
+.btn-apply:hover{transform:scale(1.02);box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+
+.gen3-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.25);color:white;
+  font-size:13px;font-weight:700;
+  padding:8px 18px;border-radius:20px;
+  margin-bottom:20px;
+  border:1px solid rgba(255,255,255,0.4);
+}
+
+.reviews{display:flex;flex-direction:column;gap:14px}
+.review{
+  background:white;border-radius:16px;
+  padding:20px;border:2px solid #f0e8d8;
+}
+.review .rv-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rv-avatar{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.rv-name{font-size:13px;font-weight:700;color:#333}
+.rv-date{font-size:11px;color:#bbb}
+.review p{font-size:13px;line-height:1.7;color:#555}
+.review .stars{color:#FFD700;font-size:12px;margin-bottom:4px}
+
+.ig-section{
+  background:white;
+  border-top:2px solid #f0e8d8;
+  padding:40px 24px;
+  text-align:center;
+}
+.ig-section h2{font-size:20px;font-weight:700;color:#333;margin-bottom:6px}
+.ig-section p{font-size:13px;color:#888;margin-bottom:20px}
+.ig-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--orange);color:white;
+  padding:12px 24px;border-radius:24px;
+  text-decoration:none;font-size:14px;font-weight:700;
+  box-shadow:3px 3px 0px var(--brown);
+  transition:all 0.15s;
+}
+.ig-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0px var(--brown)}
+
+.cat-walk{font-size:24px;display:inline-block;animation:walk 3s infinite linear}
+@keyframes walk{0%{transform:translateX(-20px) scaleX(1)}49%{transform:translateX(20px) scaleX(1)}50%{transform:translateX(20px) scaleX(-1)}100%{transform:translateX(-20px) scaleX(-1)}}
+
+.divider{height:2px;background:repeating-linear-gradient(90deg,var(--orange) 0,var(--orange) 10px,transparent 10px,transparent 20px);margin:0;opacity:0.3}
+
+footer{
+  background:#333;color:#aaa;
+  padding:24px;text-align:center;
+  font-size:12px;line-height:1.8;
+}
+footer strong{color:white}
+
+@media(max-width:480px){
+  .hero-title{font-size:44px}
+  .hero-subtitle{font-size:26px}
+  .nav-links{gap:8px}
+  .nav-links a{font-size:12px;padding:5px 8px}
+  .why-cards{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="cat-icon">🐱</span>
+    <div>
+      <h1>HOT PACK</h1>
+      <span>Hobby Our Trend</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">소개</a>
+    <a href="#activities">활동</a>
+    <a href="#recruit">신청</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="cat-hero">🐱</span>
+  <div class="hero-badge">✦ Hobby Our Trend ✦</div>
+  <p class="hero-desc-top">광주 청년들의 취미활동 커뮤니티</p>
+  <div class="hero-title">HOT</div>
+  <div class="hero-subtitle">PACK 🔥</div>
+  <p class="hero-desc">떠나고 싶은 광주가 아닌,<br><strong style="color:#FFE66D">머물고 싶은 광주</strong>를 만들어요!</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('recruit').scrollIntoView({behavior:'smooth'})">🐾 3기 신청하기</button>
+    <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">핫팩이 뭔가요?</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="about">
+  <div class="section-title">
+    핫팩의 시작
+    <span class="tag">STORY</span>
+  </div>
+  <p class="section-desc">왜 광주 청년들이 모이게 됐을까요?</p>
+
+  <div class="story-box">
+    <div class="quote">"</div>
+    <p>문화의 도시라 불리는 광주지만, 현재는 많은 청년들이 떠나고 있는 현실입니다. <strong>떠나고 싶은 광주가 아닌, 머물고 싶은 광주로!</strong></p>
+  </div>
+  <div class="story-box">
+    <div class="quote">"</div>
+    <p>청년들의 <strong>문화활동과 참여를 활성화</strong>하기 위한 '핫팩' 프로젝트가 시작되었습니다. 새로운 취미와 친구를 동시에 만나요 🐱</p>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0" id="why">
+  <div class="section-title">
+    이런 분들 모여요!
+    <span class="tag">WHY</span>
+  </div>
+  <div class="why-cards">
+    <div class="why-card">
+      <div class="icon">🌱</div>
+      <h3>새학기, 새출발!</h3>
+      <p>새로운 나로 거듭나기 가능!</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🎨</div>
+      <h3>취미를 즐기고 싶다면?</h3>
+      <p>취미 탐구 및 나만의 취미 만들기!</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">🤝</div>
+      <h3>친구가 필요하다면?</h3>
+      <p>혼자였다면 몰랐을 따뜻한 사람들 만나기!</p>
+    </div>
+    <div class="why-card">
+      <div class="icon">💫</div>
+      <h3>지속적인 커뮤니티</h3>
+      <p>6회 활동으로 자연스럽게 가까워지는 기회!</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0" id="activities">
+  <div class="section-title">
+    이런 활동 해요!
+    <span class="tag">ACTIVITY</span>
+  </div>
+  <p class="section-desc">원데이클래스, 카페, 식사, 전시 등 다양한 취미생활을 함께해요</p>
+  <div class="activities">
+    <div class="activity">
+      <div class="act-icon act-orange">☕</div>
+      <div>
+        <h3>카페 &amp; 맛집 탐방</h3>
+        <p>광주 핫플 카페 로드뷰, 두바이 초코 탕후루 등</p>
+      </div>
+      <span class="arr">›</span>
+    </div>
+    <div class="activity">
+      <div class="act-icon act-green">🎨</div>
+      <div>
+        <h3>원데이클래스</h3>
+        <p>두쫀쿠, 오일파스텔, 쿠킹클래스, 모루꽃다발 등</p>
+      </div>
+      <span class="arr">›</span>
+    </div>
+    <div class="activity">
+      <div class="act-icon act-pink">🍗</div>
+      <div>
+        <h3>함께 밥 먹기</h3>
+        <p>치킨파티, 힙한 카페 모임, 새해 해돋이 명소 방문 등</p>
+      </div>
+      <span class="arr">›</span>
+    </div>
+    <div class="activity">
+      <div class="act-icon act-yellow">🏆</div>
+      <div>
+        <h3>우수팀 시상 혜택</h3>
+        <p>시상금 100,000원 + 퍼스널 컬러 컨설팅 제공!</p>
+      </div>
+      <span class="arr">›</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0" id="recruit">
+  <div class="section-title">
+    3기 모집 중! 🔥
+    <span class="tag">JOIN</span>
+  </div>
+  <div class="recruit-box">
+    <div class="gen3-badge">🌸 새학기 핫팩 3기 모집</div>
+    <h2>핫팩 3기에서 만나요!</h2>
+    <p>핫팩에도 봄이 왔어요~<br>광주 청년이라면 지금 바로 신청하세요!</p>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="label">📅 모집기간</div>
+        <div class="val">3/16 ~ 3/31</div>
+      </div>
+      <div class="info-item">
+        <div class="label">👥 모집대상</div>
+        <div class="val">19~30세 광주 청년</div>
+      </div>
+      <div class="info-item">
+        <div class="label">📍 활동시작</div>
+        <div class="val">3/16 이후</div>
+      </div>
+      <div class="info-item">
+        <div class="label">📋 신청방법</div>
+        <div class="val">링크 → 폼작성 → 면접</div>
+      </div>
+    </div>
+    <button class="btn-apply" onclick="window.open('https://www.instagram.com/h_otpack','_blank')">🐾 지금 바로 신청하기 →</button>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-title">
+    1기 파티원 후기
+    <span class="tag">REVIEW</span>
+  </div>
+  <div class="reviews">
+    <div class="review">
+      <div class="rv-header">
+        <div class="rv-avatar" style="background:#FFF3EC">🐱</div>
+        <div>
+          <div class="rv-name">핫팩 1기 파티원</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p>처음엔 긴장했지만, 자주 만나면서 자연스럽게 웃고 이야기할 수 있었어요. 소소한 대화 속에서 큰 위로와 즐거움을 느꼈던 시간이었어요.</p>
+    </div>
+    <div class="review">
+      <div class="rv-header">
+        <div class="rv-avatar" style="background:#D8F3DC">🐱</div>
+        <div>
+          <div class="rv-name">핫팩 1기 파티원</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p>주에 2~3회씩 참여하면서 일상이 활기차졌어요. 혼자였다면 몰랐을 따뜻한 사람들을 만나, 마음까지 따뜻해졌습니다.</p>
+    </div>
+  </div>
+</div>
+
+<div class="ig-section">
+  <div style="margin-bottom:12px">
+    <span class="cat-walk">🐱</span>
+  </div>
+  <h2>📸 인스타그램 팔로우하기</h2>
+  <p>핫팩의 다양한 활동 현장을 확인해보세요!</p>
+  <a href="https://www.instagram.com/h_otpack" class="ig-btn" target="_blank">
+    @h_otpack 보러가기 →
+  </a>
+</div>
+
+<footer>
+  <strong>HOT PACK 핫팩</strong> · Hobby Our Trend<br>
+  광주 청년 취미활동 커뮤니티 · 주식회사 숨 SOOM<br>
+  Instagram: @h_otpack
+</footer>
+
+</body>
+</html>
